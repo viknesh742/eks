@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: myeks-container
-          image: myeks:latest
+          image: __ECR_IMAGE_URI__
           ports:
             - containerPort: 80

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myeks-deployment
+  labels:
+    app: myeks
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myeks
+  template:
+    metadata:
+      labels:
+        app: myeks
+    spec:
+      containers:
+        - name: myeks-container
+          image: myeks:latest
+          ports:
+            - containerPort: 80

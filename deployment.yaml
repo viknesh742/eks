@@ -19,3 +19,13 @@ spec:
           image: __ECR_IMAGE_URI__
           ports:
             - containerPort: 80
+          envFrom:
+          - configMapRef:
+              name: app-config
+          volumeMounts:
+          - mountPath: "/data"
+            name: ebs-volume
+      volumes:
+      - name: ebs-volume
+        persistentVolumeClaim:
+          claimName: ebs-pvc
